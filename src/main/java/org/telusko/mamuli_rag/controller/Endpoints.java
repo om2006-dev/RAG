@@ -1,9 +1,6 @@
 package org.telusko.mamuli_rag.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.telusko.mamuli_rag.kaam.ChatService;
 
 @RestController
@@ -16,7 +13,7 @@ public class Endpoints {
         this.chatService = chatService;
     }
 
-    @GetMapping("/query")
+    @PostMapping("/query")
     public String response(@RequestBody String message) {
         return chatService.rag_service(message);
     }
